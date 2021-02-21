@@ -61,8 +61,8 @@ class EmployeeList extends Component {
         console.log(this.state.employees)
 
         return (
-            <div className="container-min-max-width d-flex">
-               <div className="container-min-max-width d-flex flex-column m-2">
+            <div className="row">
+               <div className="col-4 col-md-2 d-flex flex-column">
                 <h4>Sort by</h4>
                <button className="btn btn-secondary m-1" onClick={()=>this.sort("name")}>Name</button>
                <button className="btn btn-secondary m-1" onClick={()=>this.sort("salary")}>Salary</button>
@@ -81,7 +81,7 @@ class EmployeeList extends Component {
 
                </div>
                 
-                <div>
+                <div className="col-10 col-md-10">
                 {this.state.employees.map((emp)=>{
                     return <Employee {...emp} />
                 })}
