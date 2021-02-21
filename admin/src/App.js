@@ -1,16 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Form from './components/EmployeeAddForm'
-import EmployeeList from './components/EmployeeList';
 import {Switch, Route} from 'react-router-dom'
 import Home from './pages/Home';
+import People from './pages/People';
 
 function App() {
   return (
  
     <div className="app">
     <Switch>
-      <Route path="/people" component={EmployeeList}/>
+      <Route path="/people" component={People}/>
       <Route path="/home" component={Home}/>
       <Route exact path="/" component={Home}/>
      

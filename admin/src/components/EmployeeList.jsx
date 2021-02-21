@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Employee from './Employee';
-import {Link} from 'react-router-dom'
 
 class EmployeeList extends Component {
     constructor(props){
@@ -18,9 +17,6 @@ class EmployeeList extends Component {
 
         return (
             <div>
-            <Link to="/home">
-                Home
-            </Link>
                 {this.state.employees.map((emp)=>{
                     return <Employee {...emp} />
                 })}
