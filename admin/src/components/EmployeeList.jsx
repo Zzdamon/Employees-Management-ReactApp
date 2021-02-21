@@ -17,7 +17,21 @@ class EmployeeList extends Component {
             empSorted.sort((a,b)=>a.salary-b.salary)
         }
         if(value==="name"){
-            empSorted.sort((a,b)=>a.name-b.name)
+            empSorted.sort((a,b)=>{
+            
+                if(a.name>b.name){
+                    return 1;
+                }
+                if(a.name<b.name){
+                    return -1;
+                }
+                
+                if(a.name==b.name){
+                    return a.surname>=b.surname? 1: -1;
+                }
+
+                }
+            )
         }
 
         this.setState({employees:empSorted})
@@ -47,28 +61,31 @@ class EmployeeList extends Component {
         console.log(this.state.employees)
 
         return (
-            <div>
-               <div>
+            <div className="container-min-max-width d-flex">
+               <div className="container-min-max-width d-flex flex-column m-2">
                 <h4>Sort by</h4>
-               <button onClick={()=>this.sort("name")}>Name</button>
-               <button onClick={()=>this.sort("salary")}>Salary</button>
+               <button className="btn btn-secondary m-1" onClick={()=>this.sort("name")}>Name</button>
+               <button className="btn btn-secondary m-1" onClick={()=>this.sort("salary")}>Salary</button>
 
                <h4>Filter Salary</h4>
-                <input type="button" name="" value="<2500"
+                <input type="button" className="btn btn-secondary m-1" name="" value="<2500"
                     onClick={()=>this.filter(1)} />
                
-               <button
+               <button className="btn btn-secondary m-1"
                     onClick={()=>this.filter(2)}>2500-4000</button>
 
                <input type="button" name="" value=">4000"
+                    className="btn btn-secondary m-1"
                     onClick={()=>this.filter(3)} />
 
 
                </div>
-
+                
+                <div>
                 {this.state.employees.map((emp)=>{
                     return <Employee {...emp} />
                 })}
+                </div>
             </div>
         )
     }

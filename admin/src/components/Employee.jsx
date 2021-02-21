@@ -5,7 +5,7 @@ export default function Employee(props) {
     console.log(props)
 
     return (
-        <div>
+        <div className="container-min-max-width d-flex flex-column m-2 border rounded-sm  p-2">
             <h3>{name} {surname}</h3>        
             <h5>Title: {job}</h5>
             <h6>Salary: {salary}$</h6>    
