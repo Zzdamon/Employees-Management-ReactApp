@@ -10,6 +10,19 @@ class EmployeeList extends Component {
         }
     }
 
+    sort(value){
+        let empSorted= [...this.state.employees];
+
+        if(value==="salary"){
+            empSorted.sort((a,b)=>a.salary-b.salary)
+        }
+        if(value==="name"){
+            empSorted.sort((a,b)=>a.name-b.name)
+        }
+
+        this.setState({employees:empSorted})
+    }
+
     render() {
         console.log("EmployeeList: ")
         console.log(this.state.employees)
@@ -19,7 +32,15 @@ class EmployeeList extends Component {
             <div>
                <div>
                 <h4>Sort by</h4>
-               <button></button>
+               <button onClick={()=>this.sort("name")}>Name</button>
+               <button onClick={()=>this.sort("salary")}>Salary</button>
+
+               <h4>Filter Salary</h4>
+                <input type="button" name="" value="<2500" id=""/>
+               <button>2500-4000</button>
+               <input type="button" name="" value=">4000" id=""/>
+
+
                </div>
 
                 {this.state.employees.map((emp)=>{
