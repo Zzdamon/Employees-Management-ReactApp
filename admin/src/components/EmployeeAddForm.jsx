@@ -11,7 +11,7 @@ class EmployeeAddForm extends React.Component {
             surname: '',
             job: '',
             salary:0,
-            date:null
+            date:''
         };
     }
 
@@ -26,6 +26,7 @@ class EmployeeAddForm extends React.Component {
                 onSubmit={(event) =>
                     {   event.preventDefault();
                         let date= new Date();
+                        date=date.toString();
                         this.setState({date:date})
                         const employee = this.state;
                         this.props.addEmployee(employee)}

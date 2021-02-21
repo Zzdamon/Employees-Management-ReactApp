@@ -17,6 +17,11 @@ class EmployeeList extends Component {
 
         return (
             <div>
+               <div>
+                <h4>Sort by</h4>
+               <button></button>
+               </div>
+
                 {this.state.employees.map((emp)=>{
                     return <Employee {...emp} />
                 })}
